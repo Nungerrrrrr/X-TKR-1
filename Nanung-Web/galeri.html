@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Aplikasi Sekolah</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+
+.row {
+        margin-top: 80px;
+        margin-bottom: 80px;
+      }
+      h2 {
+        margin-left: 44%;
+        margin-top: 50px;
+      }
+    </style>
+</head>
+
+<body>
+    <div class="header d-flex justify-content-between align-items-center p-2 bg-light shadow">
+        <div><i class="bi bi-envelope text-primary"></i> sekolah123@gmail.com</div>
+        <div>Kelas: X-TKR 1 <i class="bi bi-houses text-success"></i></div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link active" href="../index.html"><i
+                                class="bi bi-house text-primary"></i> Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="datasiswa.html"><i
+                                class="bi bi-person text-info"></i> Data Siswa</a></li>
+                    <li class="nav-item"><a class="nav-link" href="dataguru.html"><i
+                                class="bi bi-person-badge text-warning"></i> Data Guru</a></li>
+                    <li class="nav-item"><a class="nav-link" href="strukturkelas.html"><i
+                                class="bi bi-diagram-3 text-danger"></i> Struktur Kelas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="jadwal.html"><i
+                                class="bi bi-calendar3 text-primary"></i> Jadwal Piket</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pelajaran.html"><i
+                                class="bi bi-book text-success"></i> Jadwal Pelajaran</a></li>
+                    <li class="nav-item"><a class="nav-link" href="galeri.html"><i class="bi bi-images text-info"></i>
+                            Gallery Foto</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div id="galleryFoto" class="tab-content">
+            <h2>Gallery Foto</h2>
+            <div class="row">
+                <div class="col-md-3">
+                    <img src="potbar.jpg" class="img-fluid" alt="Gallery Foto">
+                </div>
+                <div class="col-md-3">
+                    <img src="https://via.placeholder.com/150" class="img-fluid" alt="Gallery Foto">
+                </div>
+                <div class="col-md-3">
+                    <img src="https://via.placeholder.com/150" class="img-fluid" alt="Gallery Foto">
+                </div>
+                <div class="col-md-3">
+                    <img src="https://via.placeholder.com/150" class="img-fluid" alt="Gallery Foto">
+                </div>
+            </div>
+        </div>
+</body>
+<script>
+    // Fungsi untuk menambahkan kelas 'active' pada menu navigasi
+    function setActive(link) {
+         const links = document.querySelectorAll('.nav-link');
+         links.forEach(nav => nav.classList.remove('active')); // Hapus 'active' dari semua link
+         link.classList.add('active'); // Tambahkan 'active' pada link yang dipilih
+     }
+</script>
+  <!-- Menambahkan Bootstrap JS dan dependencies -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+</html>
