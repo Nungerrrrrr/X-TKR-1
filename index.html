@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Aplikasi Sekolah</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap");
+
+      .con {
+        height: 70vh !important;
+        overflow: hidden;
+        background-color: #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      @keyframes typing {
+        from {
+          width: 0;
+        }
+
+        to {
+          width: 700px;
+        }
+      }
+
+      h1 {
+        color: rgb(0, 0, 0);
+        font-family: "Share Tech Mono", "Cascadia Code", Menlo, Monaco,
+          "Courier New", monospace;
+        font-size: 2rem;
+        filter: drop-shadow(0px 0px 5px currentColor);
+        overflow: hidden; /* Pastikan teks tetap dalam batas */
+        white-space: nowrap;
+
+        animation: typing 4s steps(44, end), fadeIn 4s;
+
+        &::after {
+          content: "";
+          border-right: 0.15em solid #333;
+          margin-left: 0.2em;
+          animation: blink 1s linear infinite;
+
+          display: inline-block;
+          vertical-align: baseline;
+        }
+      }
+
+      .grid-container {
+        --grid: 10rem;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform-style: preserve-3d;
+        perspective: 100rem;
+        animation: rotate 100s linear infinite forwards;
+
+        .plane {
+          --dir: 1;
+          width: 300%;
+          height: 150%;
+          min-height: 70rem;
+          position: absolute;
+          bottom: 0;
+          transform-style: preserve-3d;
+          transform-origin: bottom center;
+          transform: translateX(-50%) rotateX(85deg);
+
+          &:last-child {
+            --dir: -1;
+            top: 0;
+            transform-origin: top center;
+            transform: translateX(-50%) rotateX(-85deg);
+
+            & > * {
+              &::after {
+                background-image: linear-gradient(
+                  to top,
+                  rgba(255, 255, 255, 255) var(--grid),
+                  rgba(0, 0, 0, 0)
+                );
+              }
+            }
+          }
+
+          & > * {
+            transform-style: preserve-3d;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+
+            &::before,
+            &::after {
+              content: "";
+              display: block;
+              position: absolute;
+              width: 100%;
+              height: 100%;
+              top: 0;
+              left: 0;
+            }
+
+            &::before {
+              background-image: repeating-linear-gradient(
+                  to left,
+                  rgb(0, 0, 0),
+                  rgb(0, 0, 0) 4px,
+                  transparent 4px,
+                  transparent var(--grid)
+                ),
+                repeating-linear-gradient(
+                  to bottom,
+                  rgb(0, 0, 0),
+                  rgb(0, 0, 0) 4px,
+                  transparent 4px,
+                  transparent var(--grid)
+                );
+              animation: move 1s linear infinite forwards;
+            }
+
+            &::after {
+              background-image: linear-gradient(
+                to bottom,
+                rgba(255, 255, 255, 255) var(--grid),
+                rgba(142, 142, 142, 0)
+              );
+              z-index: 1;
+              transform: translateZ(1px);
+            }
+          }
+
+          .glow {
+            filter: blur(1rem);
+            z-index: 1;
+            mix-blend-mode: plus-lighter;
+          }
+        }
+      }
+
+      @keyframes move {
+        from {
+          transform: translateY(0px);
+        }
+
+        to {
+          transform: translateY(calc(var(--grid) * var(--dir)));
+        }
+      }
+
+      @keyframes blink {
+        0% {
+          visibility: visible;
+        }
+
+        50% {
+          visibility: visible;
+        }
+
+        51% {
+          visibility: hidden;
+        }
+
+        100% {
+          visibility: hidden;
+        }
+      }
+
+      .navbar {
+        z-index: 999;
+        font-weight: 600;
+      }
+
+      body {
+        width: 100vw !important;
+        overflow-y: hidden !important;
+        overflow-x: hidden !important;
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          width: 90%;
+        }
+
+        .info-section {
+          grid-template-columns: 1fr;
+        }
+
+        .stat-card {
+          width: 120px;
+          margin-bottom: 20px;
+        }
+
+        .testimonial-card {
+          width: 280px;
+        }
+        h1 {
+          font-size: 1rem !important;
+          animation: typing 4s steps(44, end), fadeIn 4s !important;
+        }
+        @keyframes typing {
+          from {
+            width: 0 !important;
+          }
+
+          to {
+            width: 500px !important;
+          }
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="header d-flex justify-content-between align-items-center p-2 bg-light shadow"
+    >
+      <div>
+        <i class="bi bi-envelope text-primary"></i> sekolah123@gmail.com
+      </div>
+      <div>Kelas: X-TKR 1 <i class="bi bi-houses text-success"></i></div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow">
+      <div class="container-fluid">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="index.html"
+                ><i class="bi bi-house text-primary"></i> Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="Nanung-Web/datasiswa.html"
+                ><i class="bi bi-person text-info"></i> Data Siswa</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="Nanung-Web/dataguru.html"
+                ><i class="bi bi-person-badge text-warning"></i> Data Guru</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="Nanung-Web/strukturkelas.html"
+                ><i class="bi bi-diagram-3 text-danger"></i> Struktur Kelas</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="Nanung-Web/jadwal.html"
+                ><i class="bi bi-calendar3 text-primary"></i> Jadwal Piket</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="Nanung-Web/pelajaran.html"
+                ><i class="bi bi-book text-success"></i> Jadwal Pelajaran</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="Nanung-Web/galeri.html"
+                ><i class="bi bi-images text-info"></i> Gallery Foto</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="con">
+      <div class="grid-container">
+        <div class="plane">
+          <div class="grid"></div>
+          <div class="glow"></div>
+        </div>
+        <div class="plane">
+          <div class="grid"></div>
+          <div class="glow"></div>
+        </div>
+      </div>
+
+      <h1>Selamat Datang Di Website Kelas X-TKR 1</h1>
+    </div>
+
+    <!--  -->
+    <script>
+      // Fungsi untuk menampilkan tab yang dipilih
+      function showTab(tabId) {
+        const tabs = document.querySelectorAll(".tab-content");
+        tabs.forEach((tab) => (tab.style.display = "none")); // Sembunyikan semua tab
+        document.getElementById(tabId).style.display = "block"; // Tampilkan tab yang dipilih
+      }
+
+      // Fungsi untuk menambahkan kelas 'active' pada menu navigasi
+      function setActive(link) {
+        const links = document.querySelectorAll(".nav-link");
+        links.forEach((nav) => nav.classList.remove("active")); // Hapus 'active' dari semua link
+        link.classList.add("active"); // Tambahkan 'active' pada link yang dipilih
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const sections = document.querySelectorAll(".tab-content");
+
+        function checkScroll() {
+          sections.forEach((section) => {
+            const position = section.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+
+            if (position < windowHeight - 100) {
+              // Jika elemen terlihat
+              if (section.id === "dataSiswa") {
+                section.style.animation = "fade-in-up 1s forwards";
+              } else if (section.id === "dataGuru") {
+                section.style.animation = "slide-in-left 1s forwards";
+              } else if (section.id === "strukturKelas") {
+                section.style.animation = "zoom-in 1s forwards";
+              } else if (section.id === "jadwalPiket") {
+                section.style.animation = "slide-in-right 1s forwards";
+              } else if (section.id === "galleryFoto") {
+                section.style.animation = "fade-in-rotate 1s forwards";
+              } else if (section.id === "jadwalPelajaran") {
+                section.style.animation = "bounce-in 1s forwards";
+              }
+            }
+          });
+        }
+
+        window.addEventListener("scroll", checkScroll);
+        checkScroll(); // Periksa saat halaman dimuat
+      });
+    </script>
+
+    <!-- Menambahkan Bootstrap JS dan dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+    <script>
+      // Fungsi untuk menambahkan kelas 'active' pada menu navigasi
+      function setActive(link) {
+        const links = document.querySelectorAll(".nav-link");
+        links.forEach((nav) => nav.classList.remove("active")); // Hapus 'active' dari semua link
+        link.classList.add("active"); // Tambahkan 'active' pada link yang dipilih
+      }
+    </script>
+  </body>
+</html>
